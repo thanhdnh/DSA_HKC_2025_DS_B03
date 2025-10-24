@@ -1,13 +1,17 @@
-﻿public class Node{
+﻿public class Node
+{
     public object data;
     public Node next;
 }
-public class MyStack{
+public class MyStack
+{
     public Node top;
-    public bool IsEmpty(){
+    public bool IsEmpty()
+    {
         return top == null;
     }
-    public void Push(object newele){
+    public void Push(object newele)
+    {
         Node newnode = new Node();
         newnode.data = newele;
         newnode.next = top;
@@ -54,7 +58,7 @@ public class MyStack{
     {
         bool foundA = this.IsExist(a);
         bool foundB = this.IsExist(b);
-        if(foundA == false || foundB == false)
+        if (foundA == false || foundB == false)
             return;
         MyStack tempStack = new MyStack();
         //while (this.IsEmpty() == false)
@@ -63,9 +67,10 @@ public class MyStack{
         {
             t = this.Pop();
             tempStack.Push(t);
-        } while (t.Equals(b)==false);
+        } while (t.Equals(b) == false);
 
-        while (tempStack.IsEmpty() == false){
+        while (tempStack.IsEmpty() == false)
+        {
             object temp = tempStack.Pop();
             if (temp.Equals(a))
                 this.Push(b);
@@ -74,21 +79,79 @@ public class MyStack{
             else
                 this.Push(temp);
         }
-        
+
     }
 }
+public class Node2
+{
+    public Node2 prev, next;
+    public object data;
+}
+public class MyQueue
+{
+    Node2 rear, front; public bool IsEmpty()
+    {
+        return rear == null || front == null;
+    }
+    public void Enqueue(object ele)
+    {
+        Node2 n = new Node2();
+        n.data = ele;
+        if (rear == null)
+        {
+            rear = n; front = n;
+        }
+        else
+        {
+            rear.prev = n;
+            n.next = rear; rear = n;
+        }
+    }
+    public Node2 Dequeue()
+    {
+        if (front == null) return null;
+        Node2 d = front;
+        front = front.prev;
+        if (front == null)
+            rear = null;
+        else
+            front.next = null;
+        return d;
+    }
+    public object Peek()
+    {
+
+    }
+    public bool IsExist(object data)
+    {
+
+    }
+    public void Swap(object a, object b)
+    {
+
+    }
+}
+
 internal class Program
 {
     private static void Main(string[] args)
     {
-        MyStack stack = new MyStack();
+        /*MyStack stack = new MyStack();
         stack.Push(10);
         stack.Push(20);
         stack.Push(30);
+        stack.Push(40);
+        stack.Push(50);
+        stack.Swap(20, 40);*/
         /*Console.WriteLine(stack.IsEmpty());
         Console.WriteLine(stack.Pop());
         Console.WriteLine(stack.Pop());
         Console.WriteLine(stack.Pop());
         Console.WriteLine(stack.IsEmpty());*/
+
+        MyQueue queue = new MyQueue();
+        queue.Enqueue(10);
+        queue.Enqueue(20);
+        queue.Enqueue(30);
     }
 }
