@@ -67,7 +67,7 @@ public class MyStack
         {
             t = this.Pop();
             tempStack.Push(t);
-        } while (t.Equals(b) == false);
+        } while (t.Equals(a) == false);
 
         while (tempStack.IsEmpty() == false)
         {
@@ -79,7 +79,6 @@ public class MyStack
             else
                 this.Push(temp);
         }
-
     }
 }
 public class Node2
@@ -120,11 +119,11 @@ public class MyQueue
     }
     public object Peek()
     {
-
+        return null;
     }
     public bool IsExist(object data)
     {
-
+        return false;
     }
     public void Swap(object a, object b)
     {
@@ -136,13 +135,16 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        /*MyStack stack = new MyStack();
+        /*
+        MyStack stack = new MyStack();
         stack.Push(10);
         stack.Push(20);
         stack.Push(30);
         stack.Push(40);
         stack.Push(50);
-        stack.Swap(20, 40);*/
+        stack.Swap(20, 40);
+        */
+        
         /*Console.WriteLine(stack.IsEmpty());
         Console.WriteLine(stack.Pop());
         Console.WriteLine(stack.Pop());
